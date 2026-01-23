@@ -11,7 +11,7 @@ import SwiftUI
 struct AnalyticsExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EmptyView()
         }
     }
 }
