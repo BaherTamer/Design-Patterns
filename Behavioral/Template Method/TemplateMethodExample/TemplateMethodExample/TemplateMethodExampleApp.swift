@@ -15,3 +15,23 @@ struct TemplateMethodExampleApp: App {
         }
     }
 }
+
+final class Presenter {
+    private let contactUsUseCase: ContactUsUseCase
+    
+    init(contactUsUseCase: ContactUsUseCase) {
+        self.contactUsUseCase = contactUsUseCase
+    }
+    
+    func submitTapped() {
+        Task { [weak self] in
+            let input = ContactUsInput(
+                name: "Name",
+                email: "email@email.com",
+                message: "message"
+            )
+            
+            let output = try? await self?.contactUsUseCase.execute(input)
+        }
+    }
+}
